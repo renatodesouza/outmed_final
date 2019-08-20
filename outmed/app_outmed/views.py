@@ -28,13 +28,3 @@ def fornecedor(request):
 def funcionario(request):
 
     return render(request, 'clientes.html')
-    
-
-def funcionario(request):
-    
-    return render(request, 'funcionario.html')
-    
-
-
-
-    
