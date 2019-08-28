@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/outmed/app_outmed/static/admin/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>lista clientes</title>
+</head>
+<body>
+    
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Celular</th>
+            <th>Fixo</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Rua</th>
+            <th>Numero</th>
+            <th>CEP</th>
+        </tr>
+        {% for cliente in cliente %}
+        <tr>
+            <td>{{ cliente.first_name }}</td>
+            <td>{{ cliente.last_name }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.celular }}</td>
+            <td>{{ cliente.fixo }}</td>
+            <td>{{ cliente.cidade }}</td>
+            <td>{{ cliente.bairro }}</td>
+            <td>{{ cliente.rua }}</td>
+            <td>{{ cliente.numero }}</td>
+            <td>{{ cliente.cep }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<a href="{% url 'index' %}">Home</a>
+</body>
+</html>

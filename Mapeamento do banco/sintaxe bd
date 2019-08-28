@@ -1,0 +1,119 @@
+CREATE TABLE cliente(
+	id_cliente int NOT NULL,
+  	nome varchar (80),
+	email varchar (80),
+  	PRIMARY KEY (id_cliente)
+);
+
+CREATE TABLE funcionario(
+	id_funcionario int NOT NULL,
+  	nome varchar (80),
+  	email varchar (80),
+  	PRIMARY KEY (id_funcionario)
+);
+
+CREATE TABLE fornecedor(
+	id_fornecedor int NOT NULL,
+  	nome varchar (80),
+  	email varchar (80),
+  	PRIMARY KEY (id_fornecedor)
+);
+
+CREATE TABLE cpf_funcionario(
+	cod_funcionario int NOT NULL,
+  	id_funcionario int,
+  	nome varchar (80),
+  	email varchar (80),
+  	PRIMARY KEY (cod_funcionario),
+  	FOREIGN key (id_funcionario) REFERENCES funcionario(id_funcionario)
+);
+
+CREATE TABLE cnpj_fornecedor(
+	cod_fornecedor int NOT NULL,
+  	id_fornecedor int,
+  	PRIMARY KEY (cod_fornecedor),
+  	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id_fornecedor)
+);
+
+CREATE TABLE livro(
+	isbn int NOT NULL,
+  	autor varchar(80),
+  	editora varchar(80),
+  	edicao varchar(50),
+  	titulo varchar (100),
+  	categoria varchar (80),
+  	PRIMARY KEY (isbn)
+);
+
+CREATE TABLE pedido(
+	id_pedido int NOT NULL,
+  	isbn int,
+  	id_cliente int,
+  	id_funcionario int,
+  	data date,
+  	valor real,
+  	PRIMARY KEY (id_pedido),
+  	FOREIGN key (isbn) REFERENCES livro(isbn)
+);
+
+CREATE TABLE end_cliente(
+	id_endereco int not null,
+  	id_cliente int,
+  	cidade varchar (80),
+  	bairro varchar (80),
+  	rua varchar (80),
+  	numero varchar (10),
+  	PRIMARY key (id_endereco),
+  	FOREIGN key (id_cliente) REFERENCES cliente(id_cliente)
+);
+
+CREATE TABLE end_fornecedor(
+	id_endereco int not null,
+  	id_fornecedor int,
+  	cidade varchar (80),
+  	bairro varchar (80),
+  	rua varchar (80),
+  	numero varchar (10),
+  	PRIMARY key (id_endereco),
+  	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id_fornecedor)
+);
+
+CREATE TABLE end_funcionario(
+	id_endereco int not null,
+  	id_funcionario int,
+  	cidade varchar (80),
+  	bairro varchar (80),
+  	rua varchar (80),
+  	numero varchar (10),
+  	PRIMARY key (id_endereco),
+  	FOREIGN key (id_funcionario) REFERENCES funcionario(id_funcionario)
+);
+
+CREATE TABLE fone_funcionario(
+	id int not null,
+  	id_funcionario int,
+  	fone1 int,
+  	fone2 int,
+  	PRIMARY key (id),
+  	FOREIGN key (id_funcionario) REFERENCES funcionario(id_funcionario)
+);
+
+CREATE TABLE fone_fornecedor(
+	id int not null,
+  	id_fornecedor int,
+  	fone1 int,
+  	fone2 int,
+  	PRIMARY key (id),
+  	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id_fornecedor)
+);
+
+
+CREATE TABLE cintato_fornecedor(
+	id_contato integer PRIMARY key AUTOINCREMENT,
+  	id_fornecedor int,
+  	nome varchar (80),
+  	email varchar (80),
+  	
+  	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id_fornecedor)
+);
+

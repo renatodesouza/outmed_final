@@ -1,10 +1,6 @@
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView   
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from app_outmed.forms import forms
-
-from .forms import *
+from .form import *
 
 from .models import *
 
@@ -13,26 +9,27 @@ from .models import *
 def index(request):
     return render(request, 'menu.html')
 
-def cliente(request):
-    return render(request, 'clientes.html')
-    
-def createLivro(ListView):
-    model = contato_fornecedor
-    fields = ['first-name', 'email', 'telefone']
+def listar_cliente(request):
+    cliente = Cliente.objects.all()
+    return render(request, 'lista_cliente.html', {'cliente': cliente})
 
-
-def fornecedor(request):
-
+def list_fornecedor(request):
     return render(request, 'fornecedor.html')
 
-def funcionario(request):
 
-    return render(request, 'clientes.html')
+
+def criar_cliente(request):
+    form = ClienteForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_cliente')
+    return render(request, 'clientes.html', {'form': form})
     
 
-def funcionario(request):
-    
-    return render(request, 'funcionario.html')
+
+
+
     
 
 

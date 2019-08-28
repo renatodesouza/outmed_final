@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('inicio/', include('app_outmed.urls')),
-    path('cadastro_cliente/', include('app_outmed.urls')),
+    path('', include('app_outmed.urls')),
+    path('cadastro/', include('app_outmed.urls')),
+    path('cliente/', include('app_outmed.urls')),
+    path('listar_cliente/', include('app_outmed.urls')),
     path('fornecedor/', include('app_outmed.urls')),
-    path('index/', include('app_outmed.urls')),
-    path('funcionario/', include('app_outmed.urls')),
+    #path('funcionario/', include('app_outmed.urls')),
+    path('admin/', admin.site.urls),
 ]
 
 admin.site.site_header = "OUTMED Admin"
