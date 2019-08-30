@@ -1,0 +1,13 @@
+Passo 1
+cliente (id_cliente, nome_cliente, e-mail_cliente, fone1_cliente, fone2_cliente, cidade_cliente,
+	bairro_cliente, rua_cliente, numero_cliente)
+
+Livraria (id_livraria, r.Social_livraria, e-mail_livraria, CNPJ_livraria, fone1_livraria,
+	fone2_livraria, cidade_livraria, bairro_livraria, rua_livraria, numero_livraria)
+
+Fornecedor (id_fornecedor, nome_fornecedor, e-mail_fornecedor, CNPJ_fornecedor, fone1_fornecedor,
+	fone2_fornecedor, cidade_fornecedor, bairro_fornecedor, rua_fornecedor, numero_fornecedor)
+
+Livros (id_livros, ISBN, autor, editora, edição, titulo, categoria)
+
+	
