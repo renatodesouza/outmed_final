@@ -1,6 +1,6 @@
 
 from django import forms
-from models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros
+from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros
 
 class ClienteForm(forms.ModelForm):
     class Meta:
