@@ -415,7 +415,7 @@
                             <li><a data-toggle="collapse" data-target="#demo" href="#">teste</a>
                                 <ul id="demo" class="collapse dropdown-header-top">
                                     <li><a href="{% url 'criar_cliente' %}">Cadastro de clientes</a></li>
-                                    <li><a href="form-components.html">Form Components</a></li>
+                                    <li><a href="#">Cadastro de Fornecedor</a></li>
                                     <li><a href="form-examples.html">Form Examples</a></li>
                                 </ul>
                             </li>
@@ -637,6 +637,7 @@
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Sobrenome</th>
                                         <th>Email</th>
@@ -652,6 +653,7 @@
                                 <tbody>
                                         {% for cliente in cliente %}
                                         <tr>
+                                            <td>{{ cliente.id }}</td>
                                             <td>{{ cliente.first_name }}</td>
                                             <td>{{ cliente.last_name }}</td>
                                             <td>{{ cliente.email }}</td>

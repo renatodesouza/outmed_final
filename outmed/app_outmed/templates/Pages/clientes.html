@@ -7,10 +7,13 @@
         <form method="POST">
           {% csrf_token %}
           {{ form.as_p }}
-          <button type="submit">Save</button>
+          <button type="submit">Slavar</button>
         </form>
     </div>
-    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'index' %}">Home</a><br>
+    {% if product %}
+        <a href="{% url 'delete_product' cliente.id %}">Delete</a>
+    {% endif %}
 </div>
 
 

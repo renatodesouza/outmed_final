@@ -12,3 +12,8 @@ class FornecedorForm(forms.ModelForm):
     class Meta:
         model = Fornecedor
         fields = ['first_name', 'email', 'cnpj', 'email', 'cidade', 'bairro', 'rua', 'numero', 'cep']
+
+class FuncionarioForm(forms.ModelForm):
+    class Meta:
+        model = Funcionario
+        fields = ['first_name', 'email', 'cpf', 'celular', 'fixo']

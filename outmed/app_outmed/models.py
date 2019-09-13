@@ -14,6 +14,8 @@ class Cliente(models.Model):
     rua = models.CharField('Rua', max_length=50, default=None)
     numero = models.CharField('Numero', max_length=10, default=None)
     cep = models.CharField('CEP', default=None, max_length=10)
+    objects = models.Manager ()
+    
 
     def __str__(self):
         return self.first_name
@@ -24,6 +26,7 @@ class Funcionario(models.Model):
     cpf = models.CharField("CPF", max_length=20, default=None)
     celular = models.CharField('Celular', max_length=20, default=None)
     fixo = models.CharField('Fixo', max_length=20, default=None)
+    objects = models.Manager()
 
     def __str__(self):
         return self.first_name
@@ -37,6 +40,7 @@ class Fornecedor(models.Model):
     rua = models.CharField('Rua', max_length=50, default=None)
     numero = models.CharField('Numero', max_length=10, default=None)
     cep = models.CharField('CEP', default=None, max_length=10)
+    objects = models.Manager ()
 
     def __str__(self):
         return self.first_name
@@ -46,6 +50,7 @@ class contato_fornecedor(models.Model):
     email = models.CharField(max_length=70)
     telefone = models.CharField(max_length=15)
     fornecedor = models.ForeignKey('Fornecedor', on_delete=models.CASCADE)
+    objects = models.Manager ()
 
     def __str__(self):
         return self.first_name
@@ -60,6 +65,7 @@ class Livros(models.Model):
     preco_compra = models.DecimalField(max_digits=5, decimal_places=2, default=None)
     preco_venda = models.DecimalField(max_digits=5, decimal_places=2, default=None)
     quantidade = models.IntegerField(default=None)
+    objects = models.Manager ()
 
     def __str__(self):
         return self.titulo
@@ -72,6 +78,7 @@ class Pedido(models.Model):
     Valor = models.DecimalField(max_digits=5, decimal_places=2)
     quantidade = models.IntegerField()
     situação = models.CharField(max_length=50, blank=True, null=True)
+    objects = models.Manager ()
 
 
 class Devolução(models.Model):
@@ -80,6 +87,7 @@ class Devolução(models.Model):
     
     Data = models.DateField('Data da venda')
     Motivo = models.CharField('Motivo', max_length=200)
+    objects = models.Manager ()
 
     
 
