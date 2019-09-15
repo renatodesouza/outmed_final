@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .form import ClienteForm, FornecedorForm, FuncionarioForm
+from .form import ClienteForm, FornecedorForm, FuncionarioForm, LivroForm, ContatoFornecedorForm, PedidoForm, DevolucaoForm
 
 from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros
 
@@ -88,17 +88,88 @@ def delete_fornecedor(request, id):
 
 #------------------FUNCIONARIO------------------------------
 def listar_funcionario(request):
-    funcionario = funcionario.objects.all()
-    return render(request, 'Pages/funcionario.html', {'funcionario': funcionario})
+    funcionario = Funcionario.objects.all()
+    return render(request, 'Pages/listar_funcionario.html', {'funcionario': funcionario})
 
 def criar_funcionario(request):
     form = FuncionarioForm(request.POST or None)
 
     if form.is_valid():
         form.save()
-        
         return redirect('listar_funcionario')
     return render(request, 'Pages/funcionario.html', {'form': form})
+
+#--------------------------------------------------------------------------------------------------
+#-------------------FALTA CRIAR AS FUNÇÕES DE DELTE E UPDATE DE FUNCIONÁRIO------------------------
+#--------------------------------------------------------------------------------------------------
+
+#------------------LIVROS------------------------------
+
+def listar_livros(request):
+    livros = Livros.objects.all()
+    return render(request, 'Pages/listar_livros.html', {'livros': livros})
+
+def criar_livro(request):
+    form = LivroForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_livros')
+    return render(request, 'Pages/livros.html', {'form': form})
+
+#--------------------------------------------------------------------------------------------------
+#-------------------FALTA CRIAR AS FUNÇÕES DE DELTE E UPDATE DE LIVROS-----------------------------
+#--------------------------------------------------------------------------------------------------
+
+#------------------CONTATO FORNECEDOR------------------------------
+
+def listar_contato(request):
+    contato = contato_fornecedor.objects.all()
+    return render(request, 'Pages/listar_contato.html', {'contato': contato})
+
+def criar_contato(request):
+    form = ContatoFornecedorForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_contato')
+    return render(request, 'Pages/contato.html', {'form': form})
+
+#--------------------------------------------------------------------------------------------------
+#-------------------FALTA CRIAR AS FUNÇÕES DE DELTE E UPDATE DE CONTATO FORNECEDOR-----------------------------
+#--------------------------------------------------------------------------------------------------
+
+#------------------CONTATO PEDIDO------------------------------
+def listar_pedido(request):
+    pedido = Pedido.objects.all()
+    return render(request, 'Pages/listar_pedido.html', {'pedido': pedido})
+
+def criar_pedido(request):
+    form = PedidoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_pedido')
+    return render(request, 'Pages/pedido.html', {'form': form})
+
+#--------------------------------------------------------------------------------------------------
+#-------------------FALTA CRIAR AS FUNÇÕES DE DELTE E UPDATE DE PEDIDO-----------------------------
+#--------------------------------------------------------------------------------------------------
+
+#------------------DEVOLUÇÃO-----------------------------------------------------------------------
+def listar_devolucao(request):
+    devolucao = Devolução.objects.all()
+    return render(request, 'Pages/listar_devolucao.html', {'devolucao': devolucao})
+
+def devolucao(request):
+    form = DevolucaoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_devolucao')
+    return render(request, 'Pages/devolucao.html', {'form': form})
+
+
 
 
 

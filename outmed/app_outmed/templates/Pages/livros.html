@@ -1,0 +1,15 @@
+
+<div class="container">
+    <h1>Livros</h1>
+      <div class="col-sm-6">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Slavar</button>
+          </form>
+      </div>
+      <a href="{% url 'index' %}">Home</a><br>
+      {% if livro %}
+          <a href="{% url 'delete_product' cliente.id %}">Delete</a>
+      {% endif %}
+  </div>

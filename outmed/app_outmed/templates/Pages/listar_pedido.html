@@ -477,7 +477,7 @@
                     </li>
                     <li><a href="{% url 'cliente' %}"><i class="notika-icon notika-mail"></i> 1-</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Interface"><i class="notika-icon notika-edit"></i> 2-</a>
+                    <li><a href="{% url 'fornecedor' %}"><i class="notika-icon notika-edit"></i> 2-</a>
                     </li>
                     <li><a data-toggle="tab" href="#Charts"><i class="notika-icon notika-bar-chart"></i> Graficos</a>
                     </li>
@@ -521,7 +521,7 @@
                         <ul class="notika-main-menu-dropdown">
                             <li><a href="{% url 'listar_cliente' %}">Clientes</a>
                             </li>
-                            <li><a href="data-table.html">Fornecedor</a>
+                            <li><a href="{% url 'listar_fornecedor' %}">Fornecedor</a>
                             </li>
                         </ul>
                     </div>
@@ -619,7 +619,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>Clientes</h2>
+                            <h2>Tabela de Pedidos</h2>
                             <p>great features without any effort.</p>
                         </div>
                         <div class="table-responsive">
@@ -627,47 +627,40 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Sobrenome</th>
-                                        <th>Email</th>
-                                        <th>Celular</th>
-                                        <th>Fixo</th>
-                                        <th>Cidade</th>
-                                        <th>Bairro</th>
-                                        <th>Rua</th>
-                                        <th>Numero</th>
-                                        <th>CEP</th>
+                                        <th>Titulo</th>
+                                        <th>Funcionário</th>
+                                        <th>Cliente</th>
+                                        <th>Data</th>
+                                        <th>Valor</th>
+                                        <th>Quantidade</th>
+                                        <th>Situação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        {% for cliente in cliente %}
+                                        {% for pedido in pedido %}
                                         <tr>
-                                            <td>{{ cliente.id }}</td>
-                                            <td>{{ cliente.first_name }}</td>
-                                            <td>{{ cliente.last_name }}</td>
-                                            <td>{{ cliente.email }}</td>
-                                            <td>{{ cliente.celular }}</td>
-                                            <td>{{ cliente.fixo }}</td>
-                                            <td>{{ cliente.cidade }}</td>
-                                            <td>{{ cliente.bairro }}</td>
-                                            <td>{{ cliente.rua }}</td>
-                                            <td>{{ cliente.numero }}</td>
-                                            <td>{{ cliente.cep }}</td>
+                                            <td>{{ pedido.id }}</td>
+                                            <td>{{ pedido.Titulo }}</td>
+                                            <td>{{ pedido.cod_funcionario }}</td>
+                                            <td>{{ pedido.cod_cliente }}</td>
+                                            <td>{{ pedido.Data }}</td>
+                                            <td>{{ pedido.Valor }}</td>
+                                            <td>{{ pedido.quantidade }}</td>
+                                            <td>{{ pedido.situação }}</td>
                                         </tr>
                                         {% endfor %}
                                 </tbody>
                                 <tfoot>
-                                     <th>Name</th>
-                                     <th>Sobrenome</th>
-                                     <th>Email</th>
-                                     <th>Celular</th>
-                                     <th>Fixo</th>
-                                     <th>Cidade</th>
-                                     <th>Bairro</th>
-                                     <th>Rua</th>
-                                     <th>Numero</th>
-                                     <th>CEP</th>
-                                    
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Titulo</th>
+                                        <th>Funcionário</th>
+                                        <th>Cliente</th>
+                                        <th>Data</th>
+                                        <th>Valor</th>
+                                        <th>Quantidade</th>
+                                        <th>Situação</th>
+                                    </tr>
                                 </tfoot>
                             </table>
                             
