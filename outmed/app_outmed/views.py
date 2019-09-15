@@ -13,6 +13,10 @@ def cliente(request):
     form = ClienteForm()
     return render(request, 'Pages/clientes.html', {'form': form})
 
+def fornecedor(request):
+    form = FornecedorForm()
+    return render(request, 'Pages/fornecedor.html', {'form': form})
+
 
 #------------------CLIENTES------------------------------
 

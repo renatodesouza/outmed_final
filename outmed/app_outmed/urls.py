@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     #path('cadastro/', views.cadastro, name='cadastro'),
     path('cliente/', views.cliente, name='cliente'),
+    path('fornecedor/', views.fornecedor, name='fornecedor'),
     path('criar_cliente/', views.criar_cliente, name='criar_cliente'),
     path('listar_cliente/', views.listar_cliente, name='listar_cliente'),
     path('listar_fornecedor/', views.listar_fornecedor, name='listar_fornecedor'),
