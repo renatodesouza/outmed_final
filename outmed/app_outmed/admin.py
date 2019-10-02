@@ -33,8 +33,8 @@ class PedidoAdmin(admin.ModelAdmin):
     list_editable = ['situação']
     
 class DevolucaoAdmin(admin.ModelAdmin):
-    list_display = ['Titulo', 'cod_cliente', 'Data', 'Motivo']
-    list_display_links = ['Titulo', 'cod_cliente']
+    list_display = ['Pedido', 'Data', 'Motivo']
+    list_display_links = ['Pedido']
     
 
     

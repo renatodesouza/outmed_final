@@ -82,9 +82,7 @@ class Pedido(models.Model):
 
 
 class Devolução(models.Model):
-    Titulo = models.ForeignKey('Livros', on_delete=models.CASCADE)
-    cod_cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
-    
+    Pedido = models.ForeignKey('Pedido', on_delete=models.CASCADE, default=None)
     Data = models.DateField('Data da venda')
     Motivo = models.CharField('Motivo', max_length=200)
     objects = models.Manager ()
