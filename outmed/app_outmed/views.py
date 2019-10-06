@@ -9,6 +9,9 @@ def index(request):
     
     return render(request, 'index.html')
 
+def validaCep(request):
+    return render(request, 'Pages/valida_Cep.html')
+
 def cliente(request):
     form = ClienteForm()
     return render(request, 'Pages/clientes.html', {'form': form})
@@ -168,6 +171,11 @@ def devolucao(request):
         form.save()
         return redirect('listar_devolucao')
     return render(request, 'Pages/devolucao.html', {'form': form})
+
+
+
+
+
 
 
 

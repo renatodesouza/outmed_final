@@ -36,4 +36,4 @@ class PedidoForm(forms.ModelForm):
 class DevolucaoForm(forms.ModelForm):
     class Meta:
         model = Devolução
-        fields = ['Pedido', 'Data', 'Motivo']
+        fields = ['Codigo', 'Data', 'Motivo']

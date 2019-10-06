@@ -21,4 +21,8 @@ urlpatterns = [
     path('listar_pedido/', views.listar_pedido, name='listar_pedido'),
     path('devolucao/', views.devolucao, name='devolucao'),
     path('listar_devolucao/', views.listar_devolucao, name='listar_devolucao'),
+    path('validaCep/', views.validaCep, name='valida_Cep'),
 ]
+
+
+
