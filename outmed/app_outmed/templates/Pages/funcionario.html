@@ -1,8 +1,22 @@
-<div class="container" style="margin-top: 140px;">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!-- Bootstrap CSS
+============================================ -->
+<link rel="stylesheet" href="{% static '../static/ADD/css/bootstrap.min.css' %}">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Cadastrar funcionário</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-primary" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'index' %}">Home</a><br>
 </div>
 

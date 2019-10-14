@@ -1,5 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
+from django.core.mail import send_mail
 import datetime
 
 
@@ -19,6 +20,7 @@ class Cliente(models.Model):
 
     def __str__(self):
         return self.first_name
+
 
 class Funcionario(models.Model):
     first_name = models.CharField("Nome", max_length=50)
@@ -82,9 +84,7 @@ class Pedido(models.Model):
 
 
 class Devolução(models.Model):
-    Titulo = models.ForeignKey('Livros', on_delete=models.CASCADE)
-    cod_cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
-    
+    Codigo = models.ForeignKey('Pedido', on_delete=models.CASCADE, default=None)
     Data = models.DateField('Data da venda')
     Motivo = models.CharField('Motivo', max_length=200)
     objects = models.Manager ()

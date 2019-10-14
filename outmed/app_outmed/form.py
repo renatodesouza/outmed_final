@@ -5,7 +5,7 @@ from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ['first_name', 'last_name', 'email', 'celular', 'fixo', 'cidade', 'bairro', 'rua', 'numero', 'cep']
+        fields = ['first_name', 'last_name', 'email', 'celular', 'fixo', 'cep', 'cidade', 'bairro', 'rua', 'numero' ]
 
 
 class FornecedorForm(forms.ModelForm):
@@ -36,4 +36,4 @@ class PedidoForm(forms.ModelForm):
 class DevolucaoForm(forms.ModelForm):
     class Meta:
         model = Devolução
-        fields = ['Titulo', 'cod_cliente', 'Data', 'Motivo']
+        fields = ['Codigo', 'Data', 'Motivo']
