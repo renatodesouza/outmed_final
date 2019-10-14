@@ -1,3 +1,9 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+ <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static '../static/ADD/css/bootstrap.min.css' %}">
 
 <!-- Adicionando JQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -11,15 +17,15 @@ crossorigin="anonymous"></script>
 
       function limpa_formulário_cep() {
           // Limpa valores do formulário de cep.
-          $("#rua").val("");
-          $("#bairro").val("");
-          $("#cidade").val("");
-          $("#uf").val("");
-          $("#ibge").val("");
+          $("rua").val("");
+          $("bairro").val("");
+          $("cidade").val("");
+          $("uf").val("");
+          $("ibge").val("");
       }
       
       //Quando o campo cep perde o foco.
-      $("#cep").blur(function() {
+      $("cep").blur(function() {
 
           //Nova variável "cep" somente com dígitos.
           var cep = $(this).val().replace(/\D/g, '');
@@ -34,22 +40,22 @@ crossorigin="anonymous"></script>
               if(validacep.test(cep)) {
 
                   //Preenche os campos com "..." enquanto consulta webservice.
-                  $("#rua").val("...");
-                  $("#bairro").val("...");
-                  $("#cidade").val("...");
-                  $("#uf").val("...");
-                  $("#ibge").val("...");
+                  $("rua").val("...");
+                  $("bairro").val("...");
+                  $("cidade").val("...");
+                  $("uf").val("...");
+                  $("ibge").val("...");
 
                   //Consulta o webservice viacep.com.br/
                   $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
 
                       if (!("erro" in dados)) {
                           //Atualiza os campos com os valores da consulta.
-                          $("#rua").val(dados.logradouro);
-                          $("#bairro").val(dados.bairro);
-                          $("#cidade").val(dados.localidade);
-                          $("#uf").val(dados.uf);
-                          $("#ibge").val(dados.ibge);
+                          $("rua").val(dados.logradouro);
+                          $("bairro").val(dados.bairro);
+                          $("cidade").val(dados.localidade);
+                          $("uf").val(dados.uf);
+                          $("ibge").val(dados.ibge);
                       } //end if.
                       else {
                           //CEP pesquisado não foi encontrado.
@@ -75,7 +81,7 @@ crossorigin="anonymous"></script>
 
 <body>
   <!-- Inicio do formulario -->
-    <form method="POST">
+    <!-- <form action="{ % novo % }" method="POST">
         {% csrf_token %}
       <label>Nome:
         <input name="nome" type="text" id="nome" value="" size="30" maxlength="9" /></label><br />
@@ -101,24 +107,26 @@ crossorigin="anonymous"></script>
         <input name="uf" type="text" id="uf" size="2" /></label><br />
         
         <button type="submit">Salvar</button>
-    </form>
+    </form> -->
   </body>
 
 
-<!-- <div class="container">
+<div class="container">
   <h1>Clientes</h1>
-    <div class="col-sm-6">
-        <form method="POST">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Salvar</button>
-        </form>
+    <div class="row">
+      <div class="col-sm-6">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-primary" type="submit">Salvar</button>
+          </form>
+      </div>
     </div>
-    <a href="{% url 'index' %}">Home</a><br>
-    {% if product %}
+    {% if cliente %}
         <a href="{% url 'delete_cliente' cliente.id %}">Delete</a>
     {% endif %}
-</div> -->
+    <a href="{% url 'index' %}">Home</a><br>
+</div>
 
 
 

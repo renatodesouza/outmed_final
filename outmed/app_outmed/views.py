@@ -4,6 +4,8 @@ from .form import ClienteForm, FornecedorForm, FuncionarioForm, LivroForm, Conta
 
 from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros
 
+import sqlite3
+
 
 def index(request):
     
@@ -25,15 +27,14 @@ def fornecedor(request):
 
 def listar_cliente(request):
     cliente = Cliente.objects.all()
-   
+    
     return render(request, 'Pages/lista_cliente.html', {'cliente': cliente})
 
 def criar_cliente(request):
     form = ClienteForm(request.POST or None)
-
+    
     if form.is_valid():
         form.save()
-        
         return redirect('listar_cliente')
     return render(request, 'Pages/clientes.html', {'form': form})
 
