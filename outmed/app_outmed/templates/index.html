@@ -66,7 +66,6 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="#"><img src="img/logo/logo.png" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -445,9 +444,7 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li class="active"><a  href="{% url 'index' %}"><i class="notika-icon notika-house"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Interface"><i class="notika-icon notika-edit"></i> </a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Charts"><i class="notika-icon notika-bar-chart"></i> Graficos</a>
+                        <!-- <li><a data-toggle="tab" href="#Charts"><i class="notika-icon notika-bar-chart"></i> Graficos</a> -->
                         </li>
                         <li><a data-toggle="tab" href="#Tables"><i class="notika-icon notika-windows"></i> Tabelas</a>
                         </li>
@@ -499,7 +496,7 @@
                                 </li>
                                 <li><a href="{% url 'listar_fornecedor' %}">Fornecedores</a>
                                 </li>
-                                <li><a href="{% url 'listar_funcionario' %}">Funcionário</a>
+                                <!-- <li><a href="{% url 'listar_funcionario' %}">Funcionário</a> -->
                                 </li>
                                 <li><a href="{% url 'listar_livros' %}">Livros</a>
                                 </li>
@@ -517,11 +514,13 @@
                                 </li>
                                 <li><a href="{% url 'criar_fornecedor' %}">Cadastrar Fornecedor</a>
                                 </li>
-                                <li><a href="{% url 'criar_funcionario' %}">Cadastrar Funcionário</a>
+                                <!-- <li><a href="{% url 'criar_funcionario' %}">Cadastrar Funcionário</a> -->
                                 </li>
                                 <li><a href="{% url 'criar_livro' %}">Cadastrar Livro</a>
                                 </li>
-                                <li><a href="{% url 'criar_contato' %}">Cadastrar Representante</a>
+                                <li><a href="{% url 'remover_livro' %}">Remover Livros</a>
+                                </li>
+                                <!-- <li><a href="{% url 'criar_contato' %}">Cadastrar Representante</a> -->
                                 </li>
                                 <li><a href="{% url 'criar_pedido' %}">Cadastrar Pedido</a>
                                 </li>
@@ -543,7 +542,7 @@
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter">50,000</span></h2>
-                            <p>Tafego Total</p>
+                            <p>Tráfego Total</p>
                         </div>
                         <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
                     </div>
@@ -587,7 +586,7 @@
                     <div class="sale-statistic-inner notika-shadow mg-tb-30">
                         <div class="curved-inner-pro">
                             <div class="curved-ctn">
-                                <h2>Estatisticas de Vendas</h2>
+                                <h2>Estatísticas de Vendas</h2>
                                 <p></p>
                             </div>
                         </div>
@@ -613,7 +612,7 @@
                         <div class="past-statistic-an">
                             <div class="past-statistic-ctn">
                                 <h3><span class="counter">1,03,000</span></h3>
-                                <p>Total Solicitações</p>
+                                <p>Total de Acessos</p>
                             </div>
                             <div class="past-statistic-graph">
                                 <div class="stats-line"></div>
@@ -1128,7 +1127,6 @@
     <script src="{% static '../static/ADD/js/main.js' %}"></script>
 	<!-- tawk chat JS
 		============================================ -->
-    <script src="{% static '../static/ADD/js/tawk-chat.js' %}"></script>
 </body>
 
 </html>

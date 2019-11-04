@@ -121,6 +121,10 @@ def criar_livro(request):
         return redirect('listar_livros')
     return render(request, 'Pages/livros.html', {'form': form})
 
+def remover_livro(request):
+    Livros.objects.filter(ISBN=id).delete()
+    return redirect('listar_livro')
+
 #--------------------------------------------------------------------------------------------------
 #-------------------FALTA CRIAR AS FUNÇÕES DE DELTE E UPDATE DE LIVROS-----------------------------
 #--------------------------------------------------------------------------------------------------
