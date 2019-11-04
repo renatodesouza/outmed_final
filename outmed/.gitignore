@@ -1,4 +1,7 @@
-__pycache__/
 py/
 .vscode/
 *.pyc
+*.whl
+venv/
+__pycache__/
+virtualenv/
