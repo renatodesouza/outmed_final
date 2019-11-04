@@ -1,5 +1,7 @@
 py/
 .vscode/
 *.pyc
+*.whl
 venv/
 __pycache__/
+virtualenv/
