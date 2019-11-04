@@ -2,6 +2,9 @@ py/
 .vscode/
 *.pyc
 *.whl
+<<<<<<< Updated upstream
 venv/
 __pycache__/
+=======
+>>>>>>> Stashed changes
 virtualenv/
