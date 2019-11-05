@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from .form import ClienteForm, FornecedorForm, FuncionarioForm, LivroForm, ContatoFornecedorForm, PedidoForm, DevolucaoForm
 
 from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros
-
+from Infra.cliente_db import novo
 import sqlite3
 
 
@@ -60,11 +60,12 @@ def delete_cliente(request, id):
 #------------------FORNECEDOR------------------------------
 def listar_fornecedor(request):
     fornecedor = Fornecedor.objects.all()
-    return render(request, 'Pages/listar_fornecedor.html', {'fornecedor': fornecedor})
+    contato = contato_fornecedor.objects.all()
+    return render(request, 'Pages/listar_fornecedor.html', {'fornecedor': fornecedor, 'contato': contato})
 
 def criar_fornecedor(request):
     form = FornecedorForm(request.POST or None)
-
+    
     if form.is_valid():
         form.save()
         return redirect('listar_fornecedor')

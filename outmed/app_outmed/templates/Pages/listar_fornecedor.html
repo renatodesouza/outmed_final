@@ -635,6 +635,7 @@
                                         <th>Rua</th>
                                         <th>Numero</th>
                                         <th>CEP</th>
+                                        <th>Contato</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -651,6 +652,14 @@
                                             <td>{{ fornecedor.cep }}</td>
                                         </tr>
                                         {% endfor %}
+                                </tbody>
+                                <tbody>
+                                    <h1>Contato</h1>
+                                    {% for contato in contato %}
+                                    <tr>
+                                        <td>{{ contato.first_name }}</td>
+                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                                 <tfoot>
                                     <th>ID</th>

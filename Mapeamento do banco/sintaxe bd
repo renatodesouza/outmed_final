@@ -108,7 +108,7 @@ CREATE TABLE fone_fornecedor(
 );
 
 
-CREATE TABLE cintato_fornecedor(
+CREATE TABLE contato_fornecedor(
 	id_contato integer PRIMARY key AUTOINCREMENT,
   	id_fornecedor int,
   	nome varchar (80),

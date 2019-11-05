@@ -135,8 +135,8 @@ crossorigin="anonymous"></script>
 </script>
 
 <body>
-  <!-- Inicio do formulario 
-    <form action="{ % criar_cliente % }" method="POST">
+  Inicio do formulario 
+    <form action="{ % url_conf 'criar_cliente' % }" method="POST">
         {% csrf_token %}
       <label>Nome:
         <input name="nome" type="text" id="nome" value="" size="30" maxlength="9" /></label><br />
@@ -162,11 +162,11 @@ crossorigin="anonymous"></script>
         <input name="uf" type="text" id="uf" size="2" /></label><br />
         
         <button type="submit">Salvar</button>
-    </form> -->
+    </form>
   </body>
 
 
-<div class="container">
+<!-- <div class="container">
   <h1>Clientes</h1>
     <div class="row">
       <div class="col-sm-6">
@@ -181,7 +181,7 @@ crossorigin="anonymous"></script>
         <a href="{% url 'delete_cliente' cliente.id %}">Delete</a>
     {% endif %}
     <a href="{% url 'index' %}">Home</a><br>
-</div>
+</div> -->
 
 
 
