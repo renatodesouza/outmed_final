@@ -23,6 +23,7 @@ urlpatterns = [
     path('devolucao/', views.devolucao, name='devolucao'),
     path('listar_devolucao/', views.listar_devolucao, name='listar_devolucao'),
     path('validaCep/', views.validaCep, name='valida_Cep'),
+    path('index/', views.index, name='index'),
     
 ]
 
