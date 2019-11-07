@@ -11,6 +11,9 @@ def index(request):
     
     return render(request, 'index.html')
 
+def login(request):
+    return render(request, 'Pages/login.html')
+
 def validaCep(request):
     return render(request, 'Pages/valida_Cep.html')
 

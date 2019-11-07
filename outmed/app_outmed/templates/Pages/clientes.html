@@ -1,4 +1,4 @@
-{% load crispy_forms_tags %}
+
 {% load static %}
 
 <head>
@@ -172,7 +172,7 @@ crossorigin="anonymous"></script>
       <div class="col-sm-6">
           <form method="POST">
             {% csrf_token %}
-            {{ form|crispy }}
+            {{ form}}
             <button class="btn btn-primary" type="submit">Salvar</button>
           </form>
       </div>
