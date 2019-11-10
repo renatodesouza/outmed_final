@@ -5,18 +5,30 @@ from .models import *
 #senha admin do django usuario lucas senha 123
 
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'last_name', 'email', 'celular', 'fixo', 'cidade', 'bairro', 'rua', 'numero', 'cep' ]
+    list_display = ['first_name', 'last_name', 'email']
     search_fields = ['first_name']
+
+class Fone_ClienteAdmin(admin.ModelAdmin):
+    list_display = ['celular', 'fixo']
+
+class End_ClienteAdmin(admin.ModelAdmin):
+    list_display = ['cidade', 'bairro', 'rua', 'numero', 'cep']
 
 class FornecedorAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'email', 'cnpj', 'cidade', 'bairro', 'rua', 'numero', 'cep']
+    list_display = ['first_name', 'email', 'cnpj']
     search_fields = ['first_name']
 
-class EndFuncionarioAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'email', 'cpf', 'celular', 'celular', 'fixo']
+class End_FornecedorAdmin(admin.ModelAdmin):
+    list_display = ['cidade', 'bairro', 'rua', 'numero', 'cep']
+
+class FuncionarioAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'email', 'cpf']
     search_fields = ['first_name']
 
-class ContatoAdmin(admin.ModelAdmin):
+class Fone_FuncionarioAdmin(admin.ModelAdmin):
+    list_display = ['celular', 'fixo']
+    
+class Contato_FornecedorAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'email', 'telefone', 'fornecedor']
     search_fields = ['first_name']
     list_display_links = ['first_name', 'fornecedor']
@@ -38,11 +50,14 @@ class DevolucaoAdmin(admin.ModelAdmin):
     
 
     
-admin.site.register(Funcionario, EndFuncionarioAdmin)
+admin.site.register(Funcionario, FuncionarioAdmin)
+admin.site.register(Fone_Funcionario, Fone_FuncionarioAdmin)
 admin.site.register(Cliente, ClienteAdmin)
+admin.site.register(End_Cliente, End_ClienteAdmin)
 admin.site.register(Fornecedor, FornecedorAdmin)
+admin.site.register(End_Fornecedor, End_FornecedorAdmin)
 
-admin.site.register(contato_fornecedor, ContatoAdmin)
+admin.site.register(contato_fornecedor, Contato_FornecedorAdmin)
 
 admin.site.register(Livros, LivroAdmin)
 admin.site.register(Pedido, PedidoAdmin)
