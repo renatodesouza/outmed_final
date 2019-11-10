@@ -1,22 +1,37 @@
 
 from django import forms
-from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros
+from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros, End_Cliente, End_Fornecedor, Fone_Cliente, Funcionario, Fone_Funcionario
 
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ['first_name', 'last_name', 'email', 'celular', 'fixo', 'cep', 'cidade', 'bairro', 'rua', 'numero' ]
+        fields = ['first_name', 'last_name', 'email']
 
+class End_ClienteForm(forms.ModelForm):
+    model  = End_Cliente
+    fields = ['celular', 'fixo', 'cep', 'cidade', 'bairro', 'rua', 'numero']
 
-class FornecedorForm(forms.ModelForm):
-    class Meta:
-        model = Fornecedor
-        fields = ['first_name', 'email', 'cnpj', 'email', 'cidade', 'bairro', 'rua', 'numero', 'cep']
+class Fone_ClienteForm(forms.ModelForm):
+    model  = Fone_Cliente
+    fields = ['celular', 'fixo']
 
 class FuncionarioForm(forms.ModelForm):
     class Meta:
         model = Funcionario
-        fields = ['first_name', 'email', 'cpf', 'celular', 'fixo']
+        fields = ['first_name', 'email', 'cpf']
+
+class Fone_FuncionarioForm(forms.ModelForm):
+    model = Fone_Funcionario
+    fields = ['celular', 'fixo']
+
+class FornecedorForm(forms.ModelForm):
+    class Meta:
+        model = Fornecedor
+        fields = ['first_name', 'email', 'cnpj']
+
+class End_Fornecedor(forms.ModelForm):
+    model = End_Fornecedor
+    fields = ['cidade', 'bairro', 'rua', 'numero', 'cep']
 
 class LivroForm(forms.ModelForm):
     class Meta:
