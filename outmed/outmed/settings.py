@@ -25,7 +25,7 @@ SECRET_KEY = '&6czxl_5$g7b&@^3@o05a&aa9c^q_b1^d_on1gi5-(ovpmo8py'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
