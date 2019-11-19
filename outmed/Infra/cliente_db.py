@@ -1,11 +1,16 @@
 import sqlite3
 
+
 def novo(cliente):
-    con = sqlite3.connect('banco_dados')
+    nome = cliente.values()
+    sobrenome = cliente.values()
+    email = cliente.values()
+    print("Dados passados para a funcao", cliente)
+    con = sqlite3.connect('db.sqlite3')
     try:
         cur = con.cursor()
-        cur.execute("insert into Cliente(id, first_name, last_name, email, celular, fixo, cidade, bairro, rua, numero, cep) \
-            values(:id, :first_name, last_name :email, :celular, :fixo, :cidade, :bairro, :rua, :numero, :cep)", aluno.__dict__())
+        cur.execute("insert into Cliente(first_name, last_name, email) \
+            values(?, ?, ?)", nome, sobrenome, email)
         con.commit()
     except:
         con.rollback()

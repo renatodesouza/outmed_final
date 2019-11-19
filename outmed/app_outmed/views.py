@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 
-from .form import ClienteForm, FornecedorForm, FuncionarioForm, LivroForm, ContatoFornecedorForm, PedidoForm, DevolucaoForm
+from .form import  ClienteForm, FornecedorForm, FuncionarioForm, LivroForm, ContatoFornecedorForm, PedidoForm, DevolucaoForm
 
 from .models import Cliente, Fornecedor, Funcionario, Pedido, contato_fornecedor, Devolução, Livros
 from Infra.cliente_db import novo
@@ -26,9 +27,9 @@ def fornecedor(request):
 #------------------CLIENTES------------------------------
 
 def listar_cliente(request):
-    cliente = Cliente.objects.all()
+    form = Cliente.objects.all()
     
-    return render(request, 'Pages/lista_cliente.html', {'cliente': cliente})
+    return render(request, 'Pages/lista_cliente.html', {'form': form})
 
 def criar_cliente(request):
     form = ClienteForm(request.POST or None)
@@ -65,11 +66,13 @@ def listar_fornecedor(request):
 
 def criar_fornecedor(request):
     form = FornecedorForm(request.POST or None)
+    Contatoform = ContatoFornecedorForm(request.POST or None)
     
     if form.is_valid():
         form.save()
+        Contatoform.save()
         return redirect('listar_fornecedor')
-    return render(request, 'Pages/fornecedor.html', {'form': form})
+    return render(request, 'Pages/fornecedor.html', {'form': form, 'Contatoform': Contatoform})
 
 def update_fornecedor(request, id):
     fornecedor = Fornecedor.objects.get(id=id)
